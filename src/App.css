@@ -27,3 +27,6 @@ footer {
   color: gray;
   font-family: Arial, Helvetica, sans-serif;
 }
+p {
+  margin: 0.1em;
+}

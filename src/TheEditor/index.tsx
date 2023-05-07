@@ -1,7 +1,8 @@
 import { Editor } from '@monaco-editor/react';
 import { setupEditor } from './setupEditor';
 import defaultContent from './defaultContent?raw';
-export default function TheEditor() {
+import { memo } from 'react';
+const TheEditor = memo(() => {
   return (
     <Editor
       value={defaultContent}
@@ -23,4 +24,6 @@ export default function TheEditor() {
       }}
     />
   );
-}
+});
+
+export default TheEditor;
