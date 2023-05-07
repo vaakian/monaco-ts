@@ -1,0 +1,29 @@
+body {
+  background-color: #f6f9fb;
+}
+.container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container > section {
+  justify-content: center;
+}
+.editor {
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 2px;
+  display: flex;
+  max-width: 60vw;
+  /* a beautiful shadow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
+}
+
+footer {
+  margin-top: 32px;
+  color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+}
