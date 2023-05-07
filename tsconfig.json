@@ -20,5 +20,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
+  "exclude": ["src/TheEditor/defaultContent.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
