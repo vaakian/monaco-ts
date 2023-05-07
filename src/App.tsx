@@ -26,15 +26,18 @@ function Footer() {
 }
 
 function StatusBar() {
-  const { progress, finished } = useProgress();
+  const { progress, finished, total } = useProgress();
   return (
     <>
       <p>
         load status: <LoadingStatus value={finished} />
       </p>
       <p>
-        loaded `d.ts` file count:{' '}
-        <span style={{ color: 'green', fontWeight: 'bold' }}>{progress}</span>
+        loaded `d.ts` file:{' '}
+        <span style={{ color: 'green', fontWeight: 'bold' }}>
+          {progress} / {total} (
+          {total !== 0 ? `${((progress / total) * 100).toFixed(2)}%` : '0%'})
+        </span>
       </p>
     </>
   );

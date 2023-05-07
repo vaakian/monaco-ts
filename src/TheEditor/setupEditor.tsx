@@ -8,23 +8,30 @@ export const typeHelper = createATA();
 
 export function useProgress() {
   const [progress, setProgress] = useState(0);
+  const [total, setTotal] = useState(0);
   const [finished, setFinished] = useState(false);
 
   useEffect(() => {
-    typeHelper.addListener('progress', setProgress);
+    const handleProgress = (progress: number, total: number) => {
+      setProgress(progress);
+      setTotal(total);
+    };
+    typeHelper.addListener('progress', handleProgress);
 
     const handleFinished = () => setFinished(true);
     typeHelper.addListener('finished', handleFinished);
+
     const handleStarted = () => setFinished(false);
     typeHelper.addListener('started', handleStarted);
+
     return () => {
-      typeHelper.removeListener('progress', setProgress);
+      typeHelper.removeListener('progress', handleProgress);
       typeHelper.removeListener('finished', handleFinished);
       typeHelper.removeListener('started', handleStarted);
     };
   }, []);
 
-  return { progress, finished };
+  return { progress, total, finished };
 }
 
 export const setupEditor: React.ComponentProps<typeof Editor>['onMount'] = (
