@@ -6,7 +6,6 @@ const TheEditor = memo(() => {
   return (
     <Editor
       value={defaultContent}
-      height={360}
       className="editor"
       language="typescript"
       defaultPath="index.tsx"

@@ -34,7 +34,7 @@ export function useProgress() {
   return { progress, total, finished };
 }
 
-export const setupEditor: React.ComponentProps<typeof Editor>['onMount'] = (
+export const setupEditor: NonNullable<React.ComponentProps<typeof Editor>['onMount']> = (
   editor,
   monaco
 ) => {
@@ -64,4 +64,11 @@ export const setupEditor: React.ComponentProps<typeof Editor>['onMount'] = (
   typeHelper.addListener('receivedFile', addLibraryToRuntime);
 
   typeHelper.acquireType(defaultContent);
+
+  // auto adjust the height fits the content
+  const element = editor.getDomNode();
+  const height = editor.getScrollHeight();
+  if (element) {
+    element.style.height = `${height}px`;
+  }
 };
