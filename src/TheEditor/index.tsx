@@ -12,9 +12,7 @@ const TheEditor = memo(() => {
       path="index.tsx"
       onMount={setupEditor}
       options={{
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        lineNumbers: false,
+        lineNumbers: 'off',
         minimap: { enabled: false },
         scrollbar: { horizontal: 'hidden', vertical: 'hidden' },
         overviewRulerLanes: 0,

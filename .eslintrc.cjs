@@ -11,4 +11,5 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
   },
+  ignorePatterns: ['src/TheEditor/defaultContent.ts']
 }
